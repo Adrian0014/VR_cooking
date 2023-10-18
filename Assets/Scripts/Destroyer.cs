@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Destroyer : MonoBehaviour
-{
-    //public Text textoHud; 
+{ 
     public AudioSource sonido;
     public GameObject ratatouille;
     public GameObject olladeagua;
     public ParticleSystem particulas;
     public GameObject humoagua;
     public AudioSource agua;
+    public GameObject victoria;
+    public GameObject timer;
 
     public enum TipoAlimento
     {
@@ -25,13 +26,11 @@ public class Destroyer : MonoBehaviour
 
     private void Start()
     {
-        // Asegúrate de tener un AudioSource adjunto al objeto
         if (sonido == null)
         {
             sonido = GetComponent<AudioSource>();
         }
 
-        // Desactivar el sonido al inicio
         sonido.Stop();
     }
 
@@ -43,7 +42,6 @@ public class Destroyer : MonoBehaviour
             
             Destroy(other.gameObject);
             tipoAlimentoActual = TipoAlimento.Alimento2;
-            //TextoHud("Introduce alimento 2");
             particulas.Play();
             sonido.Play();
 
@@ -67,23 +65,17 @@ public class Destroyer : MonoBehaviour
             ratatouille.SetActive(true);
             olladeagua.SetActive(false);
             Destroy(other.gameObject);
-            //TextoHud("Bien hecho");
             Debug.Log("Prueba1");
             olladeagua.SetActive(false);
             humoagua.SetActive(false);
             particulas.Play();
             sonido.Play();
             agua.Stop();
+            victoria.SetActive(true);
+            Destroy(timer);
             
         }
 
     }
 
-    /*private void TextoHud(string mensaje)
-    {
-        if (textoHud != null)
-        {
-            textoHud.text = mensaje;
-        }
-    }*/
 }

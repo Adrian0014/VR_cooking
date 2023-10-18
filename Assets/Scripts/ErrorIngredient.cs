@@ -9,6 +9,8 @@ public class ErrorIngredient : MonoBehaviour
     public GameObject humo;
     public GameObject fondo;
     public AudioSource error;
+    public GameObject timer;
+    public GameObject derrota;
         
     private void Start()
     {
@@ -29,6 +31,8 @@ public class ErrorIngredient : MonoBehaviour
         fondo.SetActive(false);
         Debug.Log("l");
         error.Play();
+        Destroy(timer);
+        derrota.SetActive(true);
     }
 
 }

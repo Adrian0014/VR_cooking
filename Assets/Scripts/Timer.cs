@@ -7,14 +7,14 @@ public class Timer : MonoBehaviour
 {
     public float timer = 0;
     public Text textoTimer;
-    private bool derrotaProcesada = false; // Nuevo indicador
+    private bool derrotaProcesada = false;
 
     public GameObject fuego;
     public GameObject humo;
     public GameObject fondo;
     public AudioSource error;
 
-    // Update is called once per frame
+
     void Update()
     {
         if (timer > 0)
@@ -24,11 +24,11 @@ public class Timer : MonoBehaviour
         }
         else
         {
-            if (!derrotaProcesada) // Verificar si la derrota ya ha sido procesada
+            if (!derrotaProcesada) 
             {
                 timer = 0;
                 Derrota();
-                derrotaProcesada = true; // Marcar que la derrota ha sido procesada
+                derrotaProcesada = true; 
             }
         }
     }
